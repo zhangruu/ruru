@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选项卡</title>
+	<style>
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+		#tabs {
+			width: 1000px;
+			border: 1px solid;
+			display: flex;
+			justify-content: space-between;
+		}
+		.tabs_box {
+			width: 500px;
+		}
+		.tabs {
+			display: flex; /* 弹性盒子(横排) */
+		}
+		.tabs li {
+			padding: 10px;
+			padding-left: 28px;
+			font-size: 18px;
+			background: url('images/icon1.png') no-repeat 10px;
+		}
+		.tabs .cur {
+			color: #046fbb;
+		}
+		.contents div {
+			height: 200px;
+			font-size: 14px;
+			line-height: 1.5;
+			display: none;
+		}
+		.contents .show {
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div id="tabs">
+		<div id="tabs1" class="tabs_box">
+			<ul class="tabs">
+				<li class="cur">学院新闻</li>
+				<li>通知公告</li>
+				<li>学术动态</li>
+			</ul>
+			<div class="contents">
+				<div class="show">学院新闻的内容:由于内容修改，原公告相关内容声明无效，以新公告为准。
+
+更正内容为：
+
+1、原公告日期：2019年10月30日
+
+2、原公告内容:投标文件递交的截止时间为2019年11月21日10:30，地点为 河北公共资源交易中心418会议室更正为：投标文件递交的截止时间为2019年11月27日15:30，地点为 河北公共资源交易中心417会议室。
+</div>
+				<div>通知公告的内容:3月20日上午，由河北省教育厅主办，河北软件职业技术学院和江苏汇博机器人科技有限公司携手承办的河北省高等职业院校工业机器人技术应用培训会在我院拉开序幕。
+
+开幕仪式上，河北软件职业技术学院智能工程系系主任李恩生对大家的到来表示欢迎，希望大家通过此次培训，在工业机器人工作站系统设计规划、安装、示教编程、调试以及维护等职业能力和素养等方面能有一个质的飞跃。此次培训借助河北软件职业技术学院电气自动化技术专业实训平台，江苏汇博机器人技术有限公司高级讲师袁振东博士、杜康宁老师将对大家进行为期8天的培训。来自承德石油高等专科学校、河北工业职业技术学院等全省20余所兄弟院校的100余名师生参与培训。
+
+				consequat.</div>
+				<div>学术动态的内容:此次培训以京津冀一体化协同发展为契机，依据“中国制造2025”、“互联网+”和“河北省十三五经济社会发展规划”等发展战略，实现教学过程和生产过程无缝对接为目标。促进人才培养模式转变，践行李克强总理在全国职教会上提出的“中国制造业大国向精密制造业强国的转变”。</div>
+			</div>
+		</div>
+		<div id="tabs2" class="tabs_box">
+			<ul class="tabs">
+				<li class="cur">学术动态</li>
+				<li>时政要闻</li>
+				<li>学校动态</li>
+			</ul>
+			<div class="contents">
+				<div class="show">11月2日，我院联合保定宏帆招聘网共同举办2020届毕业生大型双选会。本次双选会为本年度第二场大型双选会，参会企业有巨力集团、直隶航空、轩宇集团、新希望集团、碧桂园等省内外110余家企业，提供招聘岗位3000余个。</div>
+				<div>参会毕业生精神饱满，精心准备了各种应聘材料。双选会的举办为毕业生与用人单位之间搭建了交流平台，有效推动了学院的毕业生就业工作。</div>
+				<div>不忘初心，牢记使命</div>
+		</div>
+	</div>
+	<div id="tabs3" class="tabs_box">
+			<ul class="tabs">
+				<li class="cur">学术动态</li>
+				<li>时政要闻</li>
+				<li>学校动态</li>
+			</ul>
+			<div class="contents">
+				<div class="show">11月2日，我院联合保定宏帆招聘网共同举办2020届毕业生大型双选会。本次双选会为本年度第二场大型双选会，参会企业有巨力集团、直隶航空、轩宇集团、新希望集团、碧桂园等省内外110余家企业，提供招聘岗位3000余个。</div>
+				<div>参会毕业生精神饱满，精心准备了各种应聘材料。双选会的举办为毕业生与用人单位之间搭建了交流平台，有效推动了学院的毕业生就业工作。</div>
+				<div>不忘初心，牢记使命</div>
+			</div>
+			</div>
+		</div>
+	<script>
+	function tab(id){
+		// 获取选项卡容器
+		var box=document.getElementById(id);
+		// 获取所有选项
+		var ul=box.getElementsByClassName('tabs')[0];
+		var lis=ul.getElementsByTagName('li');
+		// 获取所有选项内容
+		var div=box.getElementsByClassName('contents')[0];
+		var divs=div.getElementsByTagName('div');
+		for(var i=0;i<lis.length;i++){
+			lis[i].index=i; // 设置所有选项index属性，保存选项的索引序号
+			// 给所有选项绑定点击事件
+			lis[i].onclick=function(){
+			// 所有选项样式恢复正常
+				for(var i=0;i<lis.length;i++){
+					// lis[i].className=''; // class值设置为空，没有去掉class属性
+					lis[i].removeAttribute('class'); // 去掉class属性
+				}// 所有选项内容不显示
+				for(var i=0;i<divs.length;i++){
+					// divs[i].className=''; // class值设置为空，没有去掉class属性
+					divs[i].removeAttribute('class');
+				}
+				this.className='cur'; // 被点击的选项具有特殊样式
+				divs[this.index].className='show'; // 被点击的选项对应的选项内容显示
+			}
+		}
+	}
+	tab('tabs1');
+	tab('tabs2');
+	</script>
+</body>
+</html>
